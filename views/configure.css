@@ -1,0 +1,66 @@
+:root {
+    --padding: 5px;
+    --error-light: rgb(250, 188, 188);
+    --error-dark: rgb(189, 35, 35);
+    --success-light: rgb(171, 247, 177);
+    --success-dark: rgb(37, 100, 16);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    height: 100%;
+    width: 99%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+}
+
+main {
+    width: 100%;
+    padding: var(--padding);
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+div * {
+    padding: var(--padding);
+}
+
+#status {
+    display: block;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: var(--padding);
+}
+
+#status:empty {
+    display: none;
+}
+
+.success {
+    background-color: var(--success-light);
+    border-color: var(--success-dark);
+    color: var(--success-dark);
+}
+
+.error {
+    background-color: var(--error-light);
+    border-color: var(--error-dark);
+    color: var(--error-dark);
+}

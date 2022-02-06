@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.11",
+  "id": "0a90aa8c-8ebf-401e-9030-d76890b5c248",
+  "version": "0.0.2",
+  "packageName": "minimal-side-app",
+  "developer": {
+    "name": "lni",
+    "websiteUrl": "https://5dbf-185-17-205-155.ngrok.io",
+    "privacyUrl": "https://5dbf-185-17-205-155.ngrok.io/privacy.html",
+    "termsOfUseUrl": "https://5dbf-185-17-205-155.ngrok.io/tou.html"
+  },
+  "name": {
+    "short": "Minimal Meeting Sidebar App",
+    "full": "Minimal Meeting Sidebar App"
+  },
+  "description": {
+    "short": "Hello world for Teams meetings",
+    "full": "TODO: add full description here"
+  },
+  "icons": {
+    "outline": "icon-outline.png",
+    "color": "icon-color.png"
+  },
+  "accentColor": "#D85028",
+  "configurableTabs": [],
+  "staticTabs": [
+    {
+      "entityId": "960825f8-1f71-40f2-959a-10b06677ff2c",
+      "name": "Hello",
+      "contentUrl": "https://5dbf-185-17-205-155.ngrok.io/test",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "bots": [],
+  "connectors": [],
+  "composeExtensions": [],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "5dbf-185-17-205-155.ngrok.io"
+  ],
+  "showLoadingIndicator": false
+}

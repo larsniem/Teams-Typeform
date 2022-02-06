@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Token App Config page</title>
+    <link rel="stylesheet" href="./configure.css">
+</head>
+
+<body>
+    <main>
+        <div>
+            <label for="url">URL</label>
+            <input type="text" name="url" id="url" onchange="onURLChanged()" placeholder="https://...">
+        </div>
+        <div>
+            <p id="status"></p>
+        </div>
+    </main>
+    <script src="https://statics.teams.microsoft.com/sdk/v1.7.0/js/MicrosoftTeams.min.js"></script>
+    <script>
+        function onURLChanged() {
+            let validURL = `${window.origin}`;
+            let url = document.getElementById("url").value;
+            let status = document.getElementById("status");
+            status.className = "";
+            status.innerHTML = "";
+            
+            if(!url.startsWith(validURL)) {
+                status.className = "error"
+                let msg = `"${url}" does not match "${validURL}"`
+                status.innerText = msg;
+                console.error(msg);
+                return
+            }
+
+            // microsoftTeams.initialize();
+            // microsoftTeams.appInitialization.notifySuccess();
+            // microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+            //     microsoftTeams.settings.setSettings({
+            //         entityID: "Side Panel App",
+            //         contentUrl: `${window.location.origin}/test`,
+            //         suggestedTabName: "Side Panel App",
+            //         websiteUrl: `${window.location.origin}/test`,
+            //     });
+            //     saveEvent.notifySuccess();
+            // });
+            // microsoftTeams.settings.setValidityState(true);
+
+            status.className = "success"
+            let msg = `Everything seems OK. Press "Save" to continue.`
+            status.innerText = msg;
+            console.info(msg)
+        }
+    </script>
+</body>
+
+</html>
