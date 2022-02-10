@@ -22,7 +22,7 @@
     <script>
         function onURLChanged() {
             let validURL = "{{ValidDomain}}";
-            let url = document.getElementById("url").value;
+            let url = document.getElementById("url").value.replace("https://");
             let status = document.getElementById("status");
             status.className = "";
             status.innerHTML = "";
@@ -40,9 +40,9 @@
             microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
                 microsoftTeams.settings.setSettings({
                     entityID: "{{TabName}}",
-                    contentUrl: url,
+                    contentUrl: "https://"+url,
                     suggestedTabName: "{{TabName}}",
-                    websiteUrl: url,
+                    websiteUrl: "https://"+url,
                 });
                 saveEvent.notifySuccess();
             });
