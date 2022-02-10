@@ -1,7 +1,32 @@
 
 const express = require('express')
+const fs = require("fs")
+
 const app = express()
 const port = 3987
+
+const validDomain = process.env["VALIDDOMAIN"];
+const tabName = process.env["TABNAME"];
+
+function renderTemplate(filepath, validDomain, tabName) {
+  fs.readFile(__dirname+filepath, "utf8", (err, data) => {
+    if(err) {
+      console.error(err);
+      return false
+    }
+    let content = data.replace(/{{ValidDomain}}/g, validDomain)
+                      .replace(/{{TabName}}/g, tabName);
+    let renderedPath = (__dirname+filepath).replace("Template", "Rendered");
+    fs.writeFile(renderedPath, content, (err) => {
+      console.error(err);
+      return false
+    })
+    return true;
+  })
+}
+
+renderTemplate("/views/Test_Template.html", validDomain, tabName);
+renderTemplate("/views/Configure_Template.html", validDomain, tabName);
 
 app.use(express.static('views'));
 
@@ -10,11 +35,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
-    res.sendFile(__dirname + "/views/Test.html")
+    res.sendFile(__dirname + "/views/Test_Rendered.html")
 })
 
 app.get('/Configure', (req, res) => {
-    res.sendFile(__dirname + "/views/Configure.html")
+    res.sendFile(__dirname + "/views/Configure_Rendered.html")
 })
 
 app.listen(port, () => {

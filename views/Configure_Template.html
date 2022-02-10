@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Token App Config page</title>
+    <title>Configure</title>
     <link rel="stylesheet" href="./configure.css">
 </head>
 
@@ -21,7 +21,7 @@
     <script src="https://statics.teams.microsoft.com/sdk/v1.7.0/js/MicrosoftTeams.min.js"></script>
     <script>
         function onURLChanged() {
-            let validURL = `${window.origin}`;
+            let validURL = "{{ValidDomain}}";
             let url = document.getElementById("url").value;
             let status = document.getElementById("status");
             status.className = "";
@@ -35,18 +35,18 @@
                 return
             }
 
-            // microsoftTeams.initialize();
-            // microsoftTeams.appInitialization.notifySuccess();
-            // microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
-            //     microsoftTeams.settings.setSettings({
-            //         entityID: "Side Panel App",
-            //         contentUrl: `${window.location.origin}/test`,
-            //         suggestedTabName: "Side Panel App",
-            //         websiteUrl: `${window.location.origin}/test`,
-            //     });
-            //     saveEvent.notifySuccess();
-            // });
-            // microsoftTeams.settings.setValidityState(true);
+            microsoftTeams.initialize();
+            microsoftTeams.appInitialization.notifySuccess();
+            microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+                microsoftTeams.settings.setSettings({
+                    entityID: "{{TabName}}",
+                    contentUrl: url,
+                    suggestedTabName: "{{TabName}}",
+                    websiteUrl: url,
+                });
+                saveEvent.notifySuccess();
+            });
+            microsoftTeams.settings.setValidityState(true);
 
             status.className = "success"
             let msg = `Everything seems OK. Press "Save" to continue.`
