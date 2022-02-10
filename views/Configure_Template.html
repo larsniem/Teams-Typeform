@@ -22,7 +22,7 @@
     <script>
         function onURLChanged() {
             let validURL = "{{ValidDomain}}";
-            let url = document.getElementById("url").value.replace("https://");
+            let url = document.getElementById("url").value.replace("https://","");
             let status = document.getElementById("status");
             status.className = "";
             status.innerHTML = "";
