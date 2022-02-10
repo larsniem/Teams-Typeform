@@ -7,12 +7,25 @@
         {
             "type": "pwa-node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch local",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/app.js",
             "envFile": "${workspaceFolder}/dev.env"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch ngrok",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/app.js",
+            "envFile": "${workspaceFolder}/dev.env",
+            "env": {
+                "VALIDDOMAIN": "1111-111-11-111-111.ngrok.io"
+            }
         }
     ]
 }
