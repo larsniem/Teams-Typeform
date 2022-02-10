@@ -3,7 +3,7 @@
   "manifestVersion": "1.11",
   "id": "0a90aa8c-8ebf-401e-9030-d76890b5c248",
   "version": "0.0.5",
-  "packageName": "minimal-side-app",
+  "packageName": "teams-meetings-webview",
   "developer": {
     "name": "lni",
     "websiteUrl": "https://1079-185-17-205-155.ngrok.io",
@@ -11,12 +11,12 @@
     "termsOfUseUrl": "https://1079-185-17-205-155.ngrok.io/tou.html"
   },
   "name": {
-    "short": "Minimal Meeting Sidebar App",
-    "full": "Minimal Meeting Sidebar App"
+    "short": "Webview for Teams Meetings",
+    "full": "Webview for Teams Meetings"
   },
   "description": {
-    "short": "Hello world for Teams meetings",
-    "full": "TODO: add full description here"
+    "short": "Embed embedable websites into Teams Meetings.",
+    "full": "Embed embedable websites into Teams Meetings."
   },
   "icons": {
     "outline": "icon-outline.png",
@@ -41,16 +41,7 @@
       ]
     }
   ],
-  "staticTabs": [
-    {
-      "entityId": "960825f8-1f71-40f2-959a-10b06677ff2c",
-      "name": "Hello",
-      "contentUrl": "https://1079-185-17-205-155.ngrok.io/test",
-      "scopes": [
-        "personal"
-      ]
-    }
-  ],
+  "staticTabs": [],
   "bots": [],
   "connectors": [],
   "composeExtensions": [],
