@@ -10,6 +10,17 @@
             "args": [
                 "http", "3978"
             ]
+        },
+        {
+            "label": "Pack Manifest",
+            "type": "shell",
+            "command": "Compress-Archive",
+            "args": [
+                "-Force", 
+                "-Path", "${workspaceFolder}/manifest/*",
+                "-DestinationPath", "${workspaceFolder}/package.zip"
+            ],
+            "group": "build",
         }
     ]
 }
