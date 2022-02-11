@@ -3,10 +3,10 @@ const express = require('express')
 const fs = require("fs")
 
 const app = express()
-const port = 3987
+const port = process.env.PORT || 3000
 
-const validDomain = process.env["VALIDDOMAIN"];
-const tabName = process.env["TABNAME"];
+const validDomain = process.env.VALIDDOMAIN || `localhost:${port}`;
+const tabName = process.env.TABNAME || "My Tab";
 
 function renderTemplate(filepath, validDomain, tabName) {
   fs.readFile(__dirname+filepath, "utf8", (err, data) => {
