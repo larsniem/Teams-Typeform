@@ -11,14 +11,16 @@ const tabName = process.env.TABNAME || "My Tab";
 function renderTemplate(filepath, validDomain, tabName) {
   fs.readFile(__dirname+filepath, "utf8", (err, data) => {
     if(err) {
-      console.error(err);
+      if(err)
+        console.error(err);
       return false
     }
     let content = data.replace(/{{ValidDomain}}/g, validDomain)
                       .replace(/{{TabName}}/g, tabName);
     let renderedPath = (__dirname+filepath).replace("Template", "Rendered");
     fs.writeFile(renderedPath, content, (err) => {
-      console.error(err);
+      if(err)
+        console.error(err);
       return false
     })
     return true;
