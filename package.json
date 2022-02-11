@@ -1,5 +1,5 @@
 {
-  "name": "minimal",
+  "name": "teams-web-view",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
     "ngrok": "^4.3.0"
   }
 }
