@@ -4,14 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "ngrok",
-            "type": "shell",
-            "command": "ngrok",
-            "args": [
-                "http", "3978"
-            ]
-        },
-        {
             "label": "Pack Manifest",
             "type": "shell",
             "command": "Compress-Archive",
