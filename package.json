@@ -1,16 +1,17 @@
 {
-  "name": "teams-web-view",
+  "name": "teams-typeform",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "type": "module",
   "scripts": {
-    "serve": "node app.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.0"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "devDependencies": {
+    "vite": "^3.2.3"
+  },
+  "dependencies": {
+    "@microsoft/teams-js": "^2.5.0"
   }
 }

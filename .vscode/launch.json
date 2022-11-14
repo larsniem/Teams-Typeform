@@ -5,27 +5,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-node",
+            "name": "Launch Edge",
             "request": "launch",
-            "name": "Launch local",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/app.js",
-            "envFile": "${workspaceFolder}/dev.env"
+            "type": "msedge",
+            "url": "https://teams.microsoft.com/_#/conversations/19:meeting_MmNkM2QwOTctNWI5OC00ODZkLWFhZWYtYzY5MzNlYTEyMWFm@thread.v2?ctx=chat",
+            // "url": "http://localhost:80",
+            "webRoot": "${workspaceFolder}/src"
         },
         {
-            "type": "pwa-node",
+            "name": "Debug with Nodemon",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "program": "${workspaceFolder}/app.js",
             "request": "launch",
-            "name": "Launch ngrok",
+            "restart": true,
+            "runtimeExecutable": "nodemon",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/app.js",
-            "envFile": "${workspaceFolder}/dev.env",
+            "type": "node",
             "env": {
-                "VALIDDOMAIN": "1111-111-11-111-111.ngrok.io"
+                "PATH": "${env:PATH};${workspaceFolder}/node_modules/.bin",
+                "VALIDDOMAIN": "typeform.com"
             }
         }
+
     ]
 }
