@@ -1,31 +1,31 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
   "manifestVersion": "1.11",
-  "id": "0a90aa8c-8ebf-401e-9030-d76890b5c248",
-  "version": "0.0.5",
-  "packageName": "teams-meetings-webview",
+  "id": "8febdbb8-75be-4de6-ad5f-91612e31ffd7",
+  "version": "1.0.0",
+  "packageName": "typeform-evaluation",
   "developer": {
-    "name": "lni",
-    "websiteUrl": "https://1079-185-17-205-155.ngrok.io",
-    "privacyUrl": "https://1079-185-17-205-155.ngrok.io/privacy.html",
-    "termsOfUseUrl": "https://1079-185-17-205-155.ngrok.io/tou.html"
+    "name": "ni",
+    "websiteUrl": "https://teams-typeform-test.herokuapp.com",
+    "privacyUrl": "https://teams-typeform-test.herokuapp.com/privacy.html",
+    "termsOfUseUrl": "https://teams-typeform-test.herokuapp.com/tou.html"
   },
   "name": {
-    "short": "Webview for Teams Meetings",
-    "full": "Webview for Teams Meetings"
+    "short": "Typeform für Teams Meetings",
+    "full": "Typeform für Teams Meetings"
   },
   "description": {
-    "short": "Embed embedable websites into Teams Meetings.",
-    "full": "Embed embedable websites into Teams Meetings."
+    "short": "Integration von Typeform-Umfragen in Teams Meetings.",
+    "full": "Präsentation von Typeformumfragen in Teamsmeetings in Seitenleiste und/oder Hauptansicht."
   },
   "icons": {
     "outline": "icon-outline.png",
     "color": "icon-color.png"
   },
-  "accentColor": "#D85028",
+  "accentColor": "#FFFFFF",
   "configurableTabs": [
     {
-      "configurationUrl": "https://1079-185-17-205-155.ngrok.io/configure",
+      "configurationUrl": "https://teams-typeform-test.herokuapp.com/configure",
       "canUpdateConfiguration": true,
       "scopes": [
         "groupchat",
@@ -50,7 +50,8 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "1079-185-17-205-155.ngrok.io"
+    "teams-typeform-test.herokuapp.com",
+    "ptwdarmstadt.typeform.com"
   ],
   "showLoadingIndicator": false
 }
