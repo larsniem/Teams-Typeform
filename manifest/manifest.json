@@ -2,13 +2,13 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
   "manifestVersion": "1.11",
   "id": "8febdbb8-75be-4de6-ad5f-91612e31ffd7",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "packageName": "typeform-evaluation",
   "developer": {
     "name": "ni",
-    "websiteUrl": "https://teams-typeform-test.herokuapp.com",
-    "privacyUrl": "https://teams-typeform-test.herokuapp.com/privacy.html",
-    "termsOfUseUrl": "https://teams-typeform-test.herokuapp.com/tou.html"
+    "websiteUrl": "https://teams-typeform.onrender.com",
+    "privacyUrl": "https://teams-typeform.onrender.com/privacy.html",
+    "termsOfUseUrl": "https://teams-typeform.onrender.com/tou.html"
   },
   "name": {
     "short": "Typeform für Teams Meetings",
@@ -25,7 +25,7 @@
   "accentColor": "#FFFFFF",
   "configurableTabs": [
     {
-      "configurationUrl": "https://teams-typeform-test.herokuapp.com/configure",
+      "configurationUrl": "https://teams-typeform.onrender.com",
       "canUpdateConfiguration": true,
       "scopes": [
         "groupchat",
@@ -50,7 +50,7 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "teams-typeform-test.herokuapp.com",
+    "teams-typeform.onrender.com",
     "ptwdarmstadt.typeform.com"
   ],
   "showLoadingIndicator": false
