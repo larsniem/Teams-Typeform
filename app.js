@@ -36,6 +36,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/health', (req, res) => {
+  res.status(200).send()
+})
+
 app.get('/test', (req, res) => {
     res.sendFile(__dirname + "/views/Test_Rendered.html")
 })
