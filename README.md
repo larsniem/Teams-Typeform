@@ -1,5 +1,13 @@
 # Minimal Teams Meeting Sidebar allowing ot add Typeform
 
+## Deploy
+
+You have to add a valid domain to via an environment variable e.g.:
+
+````
+VALIDDOMAIN=xyz.typeform.com
+````
+
 ## Teams Installation (Manifest)
 
 1. Klick
