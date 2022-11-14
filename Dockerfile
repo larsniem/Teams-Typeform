@@ -9,6 +9,8 @@ RUN npm install
 
 ADD '.' '.'
 
+RUN npm run build
+
 ARG port=80
 ENV PORT=$port
 ENV VALIDDOMAIN="localhost"

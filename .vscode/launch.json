@@ -26,9 +26,10 @@
             "type": "node",
             "env": {
                 "PATH": "${env:PATH};${workspaceFolder}/node_modules/.bin",
-                "VALIDDOMAIN": "typeform.com"
+                "VALIDDOMAIN": "typeform.com",
+                // "NODE_ENV": "DEV"
+                "NODE_ENV": "PROD"
             }
         }
-
     ]
 }

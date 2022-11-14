@@ -1,54 +1,64 @@
-
+const path = require('path')
 const express = require('express')
-const fs = require("fs")
 
 const app = express()
 const port = process.env.PORT || 80
 
-const validDomain = process.env.VALIDDOMAIN || `localhost:${port}`;
-const tabName = process.env.TABNAME || "Evaluation";
+const debug = (process.env.NODE_ENV ?? "") == "DEV";
 
-function renderTemplate(filepath, validDomain, tabName) {
-  fs.readFile(__dirname+filepath, "utf8", (err, data) => {
-    if(err) {
-      if(err)
-        console.error(err);
-      return false
-    }
-    let content = data.replace(/{{ValidDomain}}/g, validDomain)
-                      .replace(/{{TabName}}/g, tabName);
-    let renderedPath = (__dirname+filepath).replace("Template", "Rendered");
-    fs.writeFile(renderedPath, content, (err) => {
-      if(err)
-        console.error(err);
-      return false
-    })
-    return true;
-  })
-}
-
-renderTemplate("/views/Test_Template.html", validDomain, tabName);
-renderTemplate("/views/Configure_Template.html", validDomain, tabName);
-
-app.use(express.static('views'));
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const statics = path.resolve(__dirname, debug ? "src" : "dist");
 
 app.get('/health', (req, res) => {
   res.status(200).send()
 })
 
-app.get('/test', (req, res) => {
-    res.sendFile(__dirname + "/views/Test_Rendered.html")
-})
+loginfo = () => console.log(`Server is listening on port ${port}.`);
 
-app.get('/Configure', (req, res) => {
-    res.sendFile(__dirname + "/views/Configure_Rendered.html")
-})
+// serving statics
+if(debug){
+  const vite = require('vite')
+  const fs = require('fs')
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  vite.createServer({
+    server: { middlewareMode: true },
+    appType: "custom",
+  }).then(async (vite) => {
+    app.use(vite.middlewares);
+
+    app.use('*' , async (req, res, next) => {
+      try {
+        const url = req.baseUrl;
+        let docPath = path.join(statics, url);
+        if(url == '' || url.endsWith("/"))
+          docPath += url.endsWith("/") ? "" : "/" + "index.html";
+
+        if(!fs.existsSync(docPath)) {
+          res.status(404);
+          res.type('txt');
+          res.send(`"${url}" Not found`);
+          return;
+        }
+        
+        const extension = path.extname(docPath).toLowerCase().replace(".", "");
+        if(debug && extension == "html") {
+          let doc = fs.readFileSync(docPath, "utf-8");
+          doc = await vite.transformIndexHtml(url, doc);
+          res.status(200).set({ "Content-Type": `text/${extension}` }).end(doc);
+          return;
+        } 
+    
+        res.sendFile(docPath);
+      } catch (e) {
+        vite.ssrFixStacktrace(e);
+        next(e);
+      }
+    })
+
+    app.listen(port, loginfo)
+  })
+} else {
+  app.use(express.static(statics));
+  app.listen(port, loginfo)
+}
+  
 
